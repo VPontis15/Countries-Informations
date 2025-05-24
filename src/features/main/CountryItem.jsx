@@ -34,7 +34,7 @@ const CountryImage = styled.img`
   max-width: 100%;
   min-height: 200px;
   height: 200px;
-  max-width: 350px;
+  max-width: 300px;
   object-fit: cover;
   object-position: center center;
   overflow: hidden;
