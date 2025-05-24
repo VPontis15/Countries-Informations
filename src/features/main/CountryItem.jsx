@@ -63,7 +63,7 @@ function CountryItem({ country }) {
     <StyledCountry to={`/country/${country.cca3}`}>
       <CountryImage
         loading="lazy"
-        width={350}
+        width={300}
         height={200}
         alt={`${country.flags.alt}`}
         src={`${country.flags.svg}`}
