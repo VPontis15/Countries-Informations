@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 const StyledHeader = styled.header`
   display: flex;
@@ -6,7 +7,7 @@ const StyledHeader = styled.header`
   align-items: center;
   border-bottom: 1px solid
     ${(props) =>
-      props.isLightMode ? "var(--dark-mode-bg)" : "var(--light-mode-bg)"};
+      props.isLightMode ? 'var(--dark-mode-bg)' : 'var(--light-mode-bg)'};
   padding-block: 1.25rem;
 `;
 
@@ -19,8 +20,10 @@ const ButtonMode = styled.button`
   color: inherit;
 `;
 
-const HeaderTitle = styled.h1`
+const HeaderTitle = styled(Link)`
   font-size: clamp(1.25rem, 5vw + 0.25rem, 2.5rem);
+  text-decoration: none;
+  color: inherit;
 `;
 
 const Container = styled.div`
@@ -36,9 +39,9 @@ function Header({ isLightMode, handleLightMode }) {
   return (
     <StyledHeader isLightMode={isLightMode}>
       <Container>
-        <HeaderTitle>Where in the World</HeaderTitle>
+        <HeaderTitle to={'/'}>Where in the World</HeaderTitle>
         <ButtonMode onClick={handleLightMode}>
-          {isLightMode ? "DarkMode" : "LightMode"}{" "}
+          {isLightMode ? 'DarkMode' : 'LightMode'}{' '}
         </ButtonMode>
       </Container>
     </StyledHeader>
