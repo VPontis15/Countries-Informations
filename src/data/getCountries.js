@@ -1,29 +1,29 @@
-async function getCountries(searchOption = "all", searchQuery = "") {
-  const BASE_URL = "https://restcountries.com/v3.1/";
+async function getCountries(searchOption = 'all', searchQuery = '') {
+  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
   let fetchURL = BASE_URL;
 
   try {
     switch (searchOption) {
-      case "code":
+      case 'code':
         fetchURL += `alpha?codes=${searchQuery}`;
         break;
-      case "all":
-        fetchURL += "all";
+      case 'all':
+        fetchURL += 'all';
         break;
-      case "region":
+      case 'region':
         fetchURL += `region/${searchQuery}`;
         break;
-      case "name":
+      case 'name':
         fetchURL += `name/${searchQuery}`;
         break;
       default:
-        fetchURL += "all";
+        fetchURL += 'all';
         break;
     }
 
     const res = await fetch(fetchURL);
     if (!res.ok) {
-      throw new Error("Failed to fetch data");
+      throw new Error('Failed to fetch data');
     }
 
     const data = await res.json();
